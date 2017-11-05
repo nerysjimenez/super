@@ -1,0 +1,42 @@
+﻿<html >
+<head>
+<script type="text/javascript">
+
+	var imgObj = null;
+	var animate;
+function init()
+{
+	imgObj = document.getElementById('imag');
+	imgObj.style.position ='relative';
+	imgObj.style.left = '0px';
+	startAnim();
+}
+function randomPosition()
+{
+	var h = screen.height - 350;
+	var w = screen.width - 279;
+	
+	var randomH = Math.floor(Math.random() * h);
+	var randomW = Math.floor(Math.random() * w);
+	
+	return [randomH,randomW];
+}
+function startAnim()
+{
+	var newP = randomPosition();
+	imgObj.style.top = newP[0] + 'px';
+	imgObj.style.left = newP[1] + 'px';	
+	animate = setTimeout(startAnim, 400);
+}
+
+</script>
+<style type="text/css">
+
+</style>
+</head>
+<body onload="init();">
+
+<img src="super.gif" id="imag" >
+
+</body>
+</html>
